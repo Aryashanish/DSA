@@ -18,6 +18,22 @@ public:
         int n = nums.size();
         
         vector<vector<int>> dp(n , vector<int>(n+1 , -1));
-        return healper(nums,0,-1,dp);
+        // return healper(nums,0,-1,dp);
+        
+        //Binary Search Method
+        int len = 1;
+        vector<int> temp;
+        temp.push_back(nums[0]);
+        
+        for(int i=1; i<n; i++){
+            if(nums[i] > temp.back()){
+                temp.push_back(nums[i]);
+                len++;
+            }else{
+                int ind = lower_bound(temp.begin() , temp.end() , nums[i])-temp.begin();
+                temp[ind] = nums[i];
+            }
+        }
+        return len;
     }
 };
