@@ -37,10 +37,6 @@ public:
             // cout<<mid<<" "<<make<<endl;
             if(make < m)
                 i = mid+1;
-            else if(make > m){
-                ans = mid;
-                j = mid-1;
-            }
             else{
                 ans = mid;
                 j = mid-1;
