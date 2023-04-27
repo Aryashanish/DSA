@@ -14,17 +14,23 @@ public:
         
         ListNode* fast = head;
         ListNode* slow = head;
-        map<ListNode* , int> mp;
         
         do{
-            mp[slow]++; 
             slow = slow->next;
             if(fast->next != NULL)
                 fast = fast->next->next;
-        }while(fast && fast->next && mp[slow] < 2);
+        }while(fast && fast->next && fast != slow);
 
-        if(mp[slow] >= 2)
-            return slow;
+        if(slow == fast){
+            ListNode* t = head;
+            while(t != slow){
+                t = t->next;
+                slow = slow->next;
+            }
+            
+            if(slow == t)
+                return t;
+        }
         
         return NULL;
     }
