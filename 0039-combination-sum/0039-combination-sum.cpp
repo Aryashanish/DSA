@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void healper(vector<vector<int>>& ans , vector<int> t , int sum , int i , vector<int>& v){
+    void healper(vector<vector<int>>& ans , vector<int>& t , int sum , int i , vector<int>& v){
         if(sum == 0){
             ans.push_back(t);
             return;
@@ -12,6 +12,7 @@ public:
         if(sum - v[i] >= 0){
             t.push_back(v[i]);
             healper(ans , t , sum-v[i] , i , v);
+            t.pop_back();
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
