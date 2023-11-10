@@ -27,12 +27,12 @@ class Solution
         int k=0;
         vector<int>temp;
         while(i<=m and j<=r){
-            if(arr[i]<arr[j]){
-                temp.push_back(arr[i]);
-                i++;
-            }else{
+            if(arr[i]>arr[j]){
                 temp.push_back(arr[j]);
                 j++;
+            }else{
+                temp.push_back(arr[i]);
+                i++;
             }
         }
         while(i<=m){
